@@ -1,0 +1,32 @@
+[
+  {
+    "isEssential": true,
+    "title": "[필수] 회원 약관",
+    "content": "회원 약관 입니다"
+  },
+  {
+    "isEssential": true,
+    "title": "[필수] 개인정보 수집 및 이용 동의",
+    "content": "개인정보 수집 및 이용 동의 입니다"
+  },
+  {
+    "isEssential": true,
+    "title": "[필수] 민감정보 수집 및 이용 동의",
+    "content": "민감정보 수집 및 이용 동의 입니다"
+  },
+  {
+    "isEssential": true,
+    "title": "[필수] 개인정보 3자 제공 동의",
+    "content": "개인정보 3자 제공 동의 입니다"
+  },
+  {
+    "isEssential": false,
+    "title": "[선택] 광고 마케팅 동의",
+    "content": "광고 마케팅 동의 입니다"
+  },
+  {
+    "isEssential": false,
+    "title": "[선택] 시작페이지 설정 동의",
+    "content": "시작페이지 설정 동의 입니다"
+  }
+]

@@ -1,11 +1,20 @@
+/* eslint-disable react/jsx-key */
+import React from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Script from "next/script";
 import Layout from "../../components/layout";
 import Checkbutton from "../../components/checkbutton";
-import terms from "../../terms.json";
+import terms from "./terms.json";
+import Submitbutton from "../../components/submitbutton";
 
-export default function FirstPost() {
+const FirstPost = () => {
+  console.log(terms.id);
+  const [number, setNumber] = React.useState(0);
+  const getCount = (number) => {
+    setNumber(number);
+  };
+
   return (
     <Layout>
       <Head>
@@ -19,13 +28,34 @@ export default function FirstPost() {
         }
       />
       <h1>이용 약관</h1>
-      <ul>{terms.map}</ul>
+      <ul>
+        {console.log(terms)}
+        {terms.map((term, id) => {
+          console.log("2222", id);
+          return (
+            <li>
+              <Checkbutton
+                key={id}
+                value={term}
+                getCount={getCount}
+                number={number}
+              />
+            </li>
+          );
+        })}
+      </ul>
 
-      <h2>
+      <h3>
+        <Submitbutton />
+      </h3>
+
+      <h5>
         <Link href="/">
           <a>back to home</a>
         </Link>
-      </h2>
+      </h5>
     </Layout>
   );
-}
+};
+
+export default FirstPost;
