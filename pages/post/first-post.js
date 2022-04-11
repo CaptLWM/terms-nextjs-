@@ -45,7 +45,7 @@ const FirstPost = () => {
       </ul>
 
       <h3>
-        <Submitbutton />
+        <Submitbutton number={number} />
       </h3>
 
       <h5>

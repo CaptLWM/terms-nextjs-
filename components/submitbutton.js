@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 
-const Submitbutton = () => {
+const Submitbutton = ({ number }) => {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
 
   return (
@@ -27,7 +27,7 @@ const Submitbutton = () => {
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
       >
-        hihi
+        {number}
         <button onClick={() => setModalIsOpen(false)}>X</button>
       </Modal>
     </>
