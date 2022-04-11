@@ -9,7 +9,6 @@ import terms from "./terms.json";
 import Submitbutton from "../../components/submitbutton";
 
 const FirstPost = () => {
-  console.log(terms.id);
   const [number, setNumber] = React.useState(0);
   const getCount = (number) => {
     setNumber(number);
