@@ -1,0 +1,32 @@
+{
+    "essential1": {
+       "isEssential":true,
+       "title":"회원 약관",
+       "content":"회원 약관 입니다"
+    },
+    "essential2":{
+        "isEssential":true,
+        "title":"개인정보 수집 및 이용 동의",
+        "content":"개인정보 수집 및 이용 동의 입니다"
+    },
+    "essential3":{
+        "isEssential":true,
+        "title":"민감정보 수집 및 이용 동의",
+        "content":"민감정보 수집 및 이용 동의 입니다"
+    },
+    "essential4":{
+        "isEssential":true,
+        "title":"개인정보 3자 제공 동의",
+        "content":"개인정보 3자 제공 동의 입니다"
+    },
+    "choice1":{
+        "isEssential":false,
+        "title":"광고 마케팅 동의",
+        "content":"광고 마케팅 동의 입니다"
+    },
+    "choice2":{
+        "isEssential":false,
+        "title":"시작페이지 설정 동의",
+        "content":"시작페이지 설정 동의 입니다"
+    }
+}
