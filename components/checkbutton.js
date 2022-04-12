@@ -1,19 +1,43 @@
 import React from "react";
 import Modal from "react-modal";
+import { validateElement } from "react-modal/lib/helpers/ariaAppHider";
+import { useEffect } from "react/cjs/react.production.min";
 import terms from "../pages/post/terms.json";
 import styles from "./layout.module.css";
 
-const Checkbutton = ({ key, value, getCount, number }) => {
+const Checkbutton = ({ id, value, getCount, number, result }) => {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
+  const [count, setCount] = React.useState([{ id: "", essential: "" }]);
+  // console.log("checkClick", checkClick);
+  // console.log("key:", value); //부모
+  // console.log("id:", id); //부모
+  // console.log("number", number);
+
   const checkcount = () => {
-    console.log(number);
-    getCount(number + 1);
+    // const clickcount = [{ id: "", essential: "" }];
+    if (value.isEssential == true) {
+      const clickcount = [{ id: id, essential: value.isEssential }];
+      setCount({
+        ...count,
+        id: clickcount.id,
+        essential: clickcount.essential,
+      });
+      console.log("result", clickcount);
+    }
+    // else getCount(number + 1);
+
+    // setCount({
+    //   ...count,
+    //   id: clickcount.id,
+    //   essential: clickcount.essential,
+    // });
+    console.log("count", count);
   };
-  console.log("...", value);
+
   return (
     <>
       <h3>
-        <input type="checkbox" onClick={checkcount}></input>
+        <input name="count" type="checkbox" onChange={checkcount} />
         {value.title}
         <button onClick={() => setModalIsOpen(true)}>보기</button>
         <Modal

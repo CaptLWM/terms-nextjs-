@@ -4,6 +4,8 @@ import Modal from "react-modal";
 const Submitbutton = ({ number }) => {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
 
+  //onclick에 reset기능 추가해야함
+
   return (
     <>
       <a onClick={() => setModalIsOpen(true)}>제출</a>

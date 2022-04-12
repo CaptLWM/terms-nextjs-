@@ -13,7 +13,7 @@ const FirstPost = () => {
   const getCount = (number) => {
     setNumber(number);
   };
-
+  console.log("number", number);
   return (
     <Layout>
       <Head>
@@ -34,7 +34,7 @@ const FirstPost = () => {
           return (
             <li>
               <Checkbutton
-                key={id}
+                id={id}
                 value={term}
                 getCount={getCount}
                 number={number}
