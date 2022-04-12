@@ -8,12 +8,31 @@ import Checkbutton from "../../components/checkbutton";
 import terms from "./terms.json";
 import Submitbutton from "../../components/submitbutton";
 
+//부모컴포넌트에서 체크한게 어떤건지 관리
+//체크한것 값과 set을 자식으로 내려서
+//자식 컴포넌트에서 새로운 항목이 체크 될때 부모에서 관리하던 배열과 비교
+//filter 활용
+
 const FirstPost = () => {
   const [number, setNumber] = React.useState(0);
-  const getCount = (number) => {
-    setNumber(number);
+  const [clickcounts, setClickcount] = React.useState([]); //check 관리
+
+  const getClickcount = (clickcount) => {
+    setClickcount(clickcounts.concat(clickcount));
+    console.log("post clickcount2", clickcounts.id);
+    const result = clickcounts.filter((clickcount) => {
+      clickcount.id !== clickcounts.id;
+      setClickcount(result);
+    });
+    console.log("result", result);
   };
-  console.log("number", number);
+  console.log("post clickcount", clickcounts);
+
+  // const getCount = (number) => {
+  //   setNumber(number);
+  // };
+  // console.log("number", number);
+  //부모에서 전체 상태관리하는게 필요함
   return (
     <Layout>
       <Head>
@@ -28,16 +47,15 @@ const FirstPost = () => {
       />
       <h1>이용 약관</h1>
       <ul>
-        {console.log(terms)}
         {terms.map((term, id) => {
-          console.log("2222", id);
           return (
             <li>
               <Checkbutton
                 id={id}
                 value={term}
-                getCount={getCount}
-                number={number}
+                clickcounts={clickcounts}
+                getClickcount={getClickcount}
+                setClickcount={setClickcount}
               />
             </li>
           );

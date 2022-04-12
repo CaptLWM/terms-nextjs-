@@ -1,43 +1,42 @@
 import React from "react";
 import Modal from "react-modal";
-import { validateElement } from "react-modal/lib/helpers/ariaAppHider";
-import { useEffect } from "react/cjs/react.production.min";
-import terms from "../pages/post/terms.json";
-import styles from "./layout.module.css";
 
-const Checkbutton = ({ id, value, getCount, number, result }) => {
+// 여기는 자식컴포넌트 setState를 내려받아서
+// const handleChange = () => {
+//   if(들어가있다면,   item.id !== id ){
+//     const resut = arr.filter((item)=>{return item.id!==id});
+//   return ;
+//   }
+//   setState((prev)=>({...prev, 지금 객체를 넣어줌}))
+//   )
+//   }
+
+const Checkbutton = ({
+  id,
+  value,
+  clickcounts,
+  getClickcount,
+  setClickcount,
+}) => {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
-  const [count, setCount] = React.useState([{ id: "", essential: "" }]);
-  // console.log("checkClick", checkClick);
-  // console.log("key:", value); //부모
-  // console.log("id:", id); //부모
-  // console.log("number", number);
 
+  // const checkcount = () => {
+  //   getCount(number + 1);
+  // };
+  console.log("childclickcoutns", clickcounts);
   const checkcount = () => {
     // const clickcount = [{ id: "", essential: "" }];
+    const clickcount = { id: id, essential: value.isEssential };
     if (value.isEssential == true) {
-      const clickcount = [{ id: id, essential: value.isEssential }];
-      setCount({
-        ...count,
-        id: clickcount.id,
-        essential: clickcount.essential,
-      });
-      console.log("result", clickcount);
+      getClickcount(clickcount);
+      console.log("clickcount", clickcount);
     }
-    // else getCount(number + 1);
-
-    // setCount({
-    //   ...count,
-    //   id: clickcount.id,
-    //   essential: clickcount.essential,
-    // });
-    console.log("count", count);
   };
 
   return (
     <>
       <h3>
-        <input name="count" type="checkbox" onChange={checkcount} />
+        <input name="count" type="checkbox" onClick={checkcount} />
         {value.title}
         <button onClick={() => setModalIsOpen(true)}>보기</button>
         <Modal
