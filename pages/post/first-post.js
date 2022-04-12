@@ -16,23 +16,33 @@ import Submitbutton from "../../components/submitbutton";
 const FirstPost = () => {
   const [number, setNumber] = React.useState(0);
   const [clickcounts, setClickcount] = React.useState([]); //check 관리
-
+  console.log("clickcounts", clickcounts);
   const getClickcount = (clickcount) => {
-    setClickcount(clickcounts.concat(clickcount));
-    console.log("post clickcount2", clickcounts.id);
-    const result = clickcounts.filter((clickcount) => {
-      clickcount.id !== clickcounts.id;
+    console.log("result1", clickcount);
+    if (
+      clickcounts?.some((v) => {
+        return v?.id === clickcount?.id;
+      })
+    ) {
+      const result = clickcounts.filter((v) => {
+        return v.id !== clickcount.id;
+      });
+      console.log("result2", result);
       setClickcount(result);
-    });
-    console.log("result", result);
+    } else {
+      setClickcount(clickcounts.concat(clickcount));
+    }
+
+    // console.log("result", result);
   };
-  console.log("post clickcount", clickcounts);
+  // console.log("post clickcount", clickcounts);
 
   // const getCount = (number) => {
   //   setNumber(number);
   // };
   // console.log("number", number);
   //부모에서 전체 상태관리하는게 필요함
+  console.log("childclickcoutns", clickcounts);
   return (
     <Layout>
       <Head>
@@ -53,7 +63,7 @@ const FirstPost = () => {
               <Checkbutton
                 id={id}
                 value={term}
-                clickcounts={clickcounts}
+                // clickcounts={clickcounts}
                 getClickcount={getClickcount}
                 setClickcount={setClickcount}
               />

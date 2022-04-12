@@ -23,7 +23,7 @@ const Checkbutton = ({
   // const checkcount = () => {
   //   getCount(number + 1);
   // };
-  console.log("childclickcoutns", clickcounts);
+
   const checkcount = () => {
     // const clickcount = [{ id: "", essential: "" }];
     const clickcount = { id: id, essential: value.isEssential };
